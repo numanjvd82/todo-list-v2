@@ -1,0 +1,142 @@
+[
+  {
+    "id": "c9faa23c-ec17-4eb1-a42e-eb09883f507a",
+    "todo": "in ts you can have mixed array by assigning the type in () and after that []",
+    "completed": false
+  },
+  {
+    "id": "00b0cef9-76d1-413a-a7eb-09ba9a13a634",
+    "todo": "type 'any' can have any type u want but this type take away the strict typing from typescript which we don't want",
+    "completed": false
+  },
+  {
+    "id": "84540ec3-d5e4-4b75-a264-c05e63a5689a",
+    "todo": "use tsconfig for better workflow",
+    "completed": false
+  },
+  {
+    "id": "7f11a48a-5b54-4699-aace-71c65ec668bc",
+    "todo": "use include command  in tsconfig to only compile files as mentioned inside the include command ",
+    "completed": false
+  },
+  {
+    "id": "6d153a84-6aeb-4fd9-865f-ffbff6d79a0c",
+    "todo": "using return type other than void or 'any' must return a value in ts functions",
+    "completed": false
+  },
+  {
+    "id": "f8b34040-3956-4926-9196-9af4ca194d8e",
+    "todo": "giving the type 'Function' to a function will take away its strict type idk why at the moment",
+    "completed": false
+  },
+  {
+    "id": "52b6b4f0-639c-4636-8443-83683b6295c0",
+    "todo": "add a optional parameter in ts by placing a ? after the parameter's name",
+    "completed": false
+  },
+  {
+    "id": "6e816022-129b-4c29-b548-259e82750bc2",
+    "todo": "you can pass a default value to a parameter where you define them this would impose the value on the parameter if you don't define it inside the function call",
+    "completed": false
+  },
+  {
+    "id": "38d2f7f1-44f7-4c6a-8170-d0771b7d40a4",
+    "todo": "Type Aliases are custom types which can be used as a strict type",
+    "completed": false
+  },
+  {
+    "id": "31cf9a28-3126-4a14-99fb-e68971de5a67",
+    "todo": "function signatures are similar to type aliases. We can use them to strict type the whole function such as params and the return value",
+    "completed": false
+  },
+  {
+    "id": "42489b55-ed99-4334-bce6-a673e01f2bf7",
+    "todo": "when working with DOM with TS put a ! explanation mark at the end of command such as at the end of the querySelector.",
+    "completed": false
+  },
+  {
+    "id": "5037e162-92fc-4ff3-8abc-3ece3d08291b",
+    "todo": "Use type casting when you need to traverse through same elements  such as using as and then the type",
+    "completed": false
+  },
+  {
+    "id": "b5bce935-ad09-4dbc-a10f-11a6f0492e9b",
+    "todo": "you can only access private property inside the class.",
+    "completed": false
+  },
+  {
+    "id": "7ec2868f-bd13-4c15-baef-949e5f931567",
+    "todo": "you can make properties private which you can't access them outside the class but you can still access them using a method declared in a class",
+    "completed": false
+  },
+  {
+    "id": "35a2a5a7-34a9-4d9b-aa07-2d0db9260693",
+    "todo": "make properties readonly using 'readonly'. This way you can access them but can't modify them in any way",
+    "completed": false
+  },
+  {
+    "id": "702679dc-9429-4b4e-bc33-235be790bd4a",
+    "todo": "you can directly declare class properties inside the constructor if you are using access modifiers",
+    "completed": false
+  },
+  {
+    "id": "4a003a41-eca9-43c8-8e9d-f4d53efa8c55",
+    "todo": "Interface is another way of structure your objects which enforce certain properties and their types to an object",
+    "completed": false
+  },
+  {
+    "id": "54c787c4-675c-4cc2-ae93-1b38a2a1cbfa",
+    "todo": "you can use interface in classes by using 'implements' keyword and then the name of the interface",
+    "completed": false
+  },
+  {
+    "id": "30cbf350-e41e-4bd4-87de-85b68933cd04",
+    "todo": "u can use union tags and type while declaring params or variables",
+    "completed": false
+  },
+  {
+    "id": "390507d4-053b-41ce-ab1d-b21e82447f98",
+    "todo": "TypeScript Generics is a tool which provides a way to create reusable components. It creates a component that can work with a variety of data types rather than a single data type. It allows users to consume these components and use their own types.",
+    "completed": false
+  },
+  {
+    "id": "7c703547-eb28-4bc2-9423-1374aef87dba",
+    "todo": "You can use generics by passing a '<T>' as common convention and you can also extend the type to a object or ur own custom type",
+    "completed": false
+  },
+  {
+    "id": "9e4a7b72-4ea8-4852-80d5-687e93970e01",
+    "todo": "difference between interface and type which is the only difference in know at the moment is that same interface can have multiple declaration unlike types",
+    "completed": false
+  },
+  {
+    "id": "694272fd-8dff-4ae3-b8bd-6041f2286c3b",
+    "todo": "enums is a special type which allows to store set of constants of keywords associated with a numeric value. They are also zero index based",
+    "completed": false
+  },
+  {
+    "id": "0c700336-b17b-4fa8-a071-b7b329512962",
+    "todo": "tuples are mostly like array and can have methods but the major difference is that the type of data in each position in a tuple is fixed",
+    "completed": false
+  },
+  {
+    "id": "ac64c19c-53ec-4eb6-a1fa-ad74cf38278b",
+    "todo": "json.stringify takes a JS object and turns it into a JSON string while js.parse takes a JSON string and turns it into a JS object",
+    "completed": false
+  },
+  {
+    "id": "bc4af87b-2a00-4bfe-aeb3-68d60d649b9b",
+    "todo": "Generics can also be used as a dynamic type and can have more than 1 type at once",
+    "completed": false
+  },
+  {
+    "id": "75b256c5-5233-470e-892e-6c635fe36121",
+    "todo": "misconception in TS is that types exist from the compile time into runtime but eventually this is not true.",
+    "completed": false
+  },
+  {
+    "id": "248e53c7-45dd-4787-a8cb-1f10ab279535",
+    "todo": "if your function overloads contain different types of params then inside the function implementation do a typecast and then define their functionality",
+    "completed": false
+  }
+]
