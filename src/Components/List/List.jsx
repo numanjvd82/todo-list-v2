@@ -5,7 +5,7 @@ import {
   AiFillEdit,
   AiTwotoneDelete,
 } from 'react-icons/ai';
-import { useTodoContext } from '../Context/Context';
+import { useTodoContext } from '../../Context/Context';
 import './List.css';
 
 const List = () => {

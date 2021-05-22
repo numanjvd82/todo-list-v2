@@ -48,7 +48,7 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input />
+      <Input className="input" placeholder="Add a Todo" />
       <button className="btn-big btn-submit" type="submit">
         {editing ? 'Edit' : 'Add'}
       </button>

@@ -4,6 +4,7 @@ import Alert from './components/Alert/Alert';
 import './App.css';
 import { useTodoContext } from './Context/Context';
 import Form from './Components/Form/Form';
+import Header from './Components/Header/Header';
 
 const App = () => {
   const { alert, todos, clearTodos } = useTodoContext();
@@ -11,6 +12,7 @@ const App = () => {
   return (
     <>
       {alert.show && <Alert />}
+      <Header />
       <section className="container">
         <h1>Todo List</h1>
         <Form />
