@@ -1,10 +1,10 @@
 import React from 'react';
-import { useTodoContext } from '../Context/Context';
+import { useTodoContext } from '../../Context/Context';
 import { v4 as uuidv4 } from 'uuid';
+import Input from '../Input/Input';
 
 const Form = () => {
   const {
-    inputRef,
     setValue,
     value,
     editing,
@@ -48,14 +48,7 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        ref={inputRef}
-        onChange={(e) => setValue(e.target.value)}
-        type="text"
-        value={value}
-        placeholder="Add a task"
-        className="input"
-      />
+      <Input />
       <button className="btn-big btn-submit" type="submit">
         {editing ? 'Edit' : 'Add'}
       </button>

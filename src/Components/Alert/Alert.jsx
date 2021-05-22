@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useTodoContext } from '../Context/Context';
+import { useTodoContext } from '../../Context/Context';
 import './Alert.css';
 
 const Alert = () => {

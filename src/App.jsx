@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import List from './components/List.jsx';
-import Alert from './components/Alert';
+import List from './components/List/List';
+import Alert from './components/Alert/Alert';
 import './App.css';
 import { useTodoContext } from './Context/Context';
-import Form from './Components/Form.jsx';
+import Form from './Components/Form/Form';
 
 const App = () => {
   const { alert, todos, clearTodos } = useTodoContext();

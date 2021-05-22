@@ -25,30 +25,6 @@ section span {
   font-weight: 500;
 }
 
-.input {
-  display: block;
-  margin: 1.5rem 0;
-  min-width: 250px;
-  padding: 0.7rem 0;
-  padding-left: 1rem;
-  outline: none;
-  background: rgb(19, 16, 16);
-  border: 2px solid rgb(48, 47, 47);
-  border-radius: 15px;
-  color: white;
-  transition: border 0.4s ease;
-}
-
-.input:focus {
-  border: 2px solid rgb(83, 139, 202);
-}
-
-@media (min-width: 800px) {
-  .input {
-    width: 400px;
-  }
-}
-
 .btn-big {
   background: rgb(48, 43, 43);
   color: white;
@@ -74,8 +50,4 @@ section span {
   .btn-big:active {
     transform: translateY(-2px);
   }
-}
-
-::placeholder {
-  font-weight: bold;
 }
