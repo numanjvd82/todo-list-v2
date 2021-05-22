@@ -2,11 +2,14 @@ import React from 'react';
 import { useTodoContext } from '../../Context/Context';
 import './Input.css';
 
-const Input = ({ placeholder, className }) => {
-  const { inputRef, setValue, value } = useTodoContext();
+const Input = ({ placeholder, className, name, value }) => {
+  const { inputRef, setValue } = useTodoContext();
   const handleChange = (e) => {
     if (e.target.name === 'add-todo') {
-      setValue(e.target.value);
+      setValue({ ...value, addInput: e.target.value });
+    }
+    if (e.target.name === 'search-todo') {
+      setValue({ ...value, searchInput: e.target.value });
     }
   };
 
@@ -18,7 +21,7 @@ const Input = ({ placeholder, className }) => {
       value={value}
       placeholder={placeholder}
       className={className}
-      name="add-todo"
+      name={name}
     />
   );
 };
