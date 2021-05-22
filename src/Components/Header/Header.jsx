@@ -1,12 +1,19 @@
 import React from 'react';
 import './Header.css';
 import Input from '../Input/Input';
+import { useTodoContext } from '../../Context/Context';
 
 const Header = () => {
+  const { value } = useTodoContext();
   return (
     <>
       <header className="header">
-        <Input className="input input-search" placeholder="Search Todos" />
+        <Input
+          name="search-todo"
+          className="input input-search"
+          placeholder="Search Todos"
+          value={value.searchInput}
+        />
       </header>
     </>
   );
