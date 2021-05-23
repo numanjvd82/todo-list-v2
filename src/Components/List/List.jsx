@@ -9,11 +9,20 @@ import { useTodoContext } from '../../Context/Context';
 import './List.css';
 
 const List = () => {
-  const { todos, handleDelete, completeTodo, editTodo, inputRef } =
+  const { todos, handleDelete, completeTodo, editTodo, inputRef, searchVal } =
     useTodoContext();
+
+  const searchTodos = (allTodos) => {
+    if (searchVal === '') {
+      return allTodos;
+    } else if (allTodos.todo.toLowerCase().includes(searchVal.toLowerCase())) {
+      return allTodos;
+    }
+  };
+
   return (
     <>
-      {todos.map((todoValues) => {
+      {todos.filter(searchTodos).map((todoValues) => {
         const { id, todo, completed } = todoValues;
         return (
           <article key={id} className="task">

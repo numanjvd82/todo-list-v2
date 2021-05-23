@@ -2,10 +2,9 @@ import React from 'react';
 import { useTodoContext } from '../../Context/Context';
 import './Input.css';
 
-const Input = ({ placeholder, className, name, value }) => {
+const Input = ({ placeholder, className, name, inputValue }) => {
   const { inputRef, setValue, setSearchVal } = useTodoContext();
   const handleChange = (e) => {
-    console.log(e.target.name);
     if (e.target.name === 'add-todo') {
       setValue(e.target.value);
     }
@@ -19,7 +18,7 @@ const Input = ({ placeholder, className, name, value }) => {
       ref={inputRef}
       onChange={handleChange}
       type="text"
-      value={value}
+      value={inputValue}
       placeholder={placeholder}
       className={className}
       name={name}

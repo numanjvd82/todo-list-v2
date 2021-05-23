@@ -49,7 +49,7 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <Input
-        value={value}
+        inputValue={value}
         name="add-todo"
         className="input"
         placeholder="Add a Todo"

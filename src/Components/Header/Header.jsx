@@ -12,7 +12,7 @@ const Header = () => {
           name="search-todo"
           className="input input-search"
           placeholder="Search Todos"
-          value={searchVal}
+          inputValue={searchVal}
         />
       </header>
     </>

@@ -62,22 +62,13 @@ const TodoProvider = ({ children }) => {
     }
   };
 
-  // const searchTodos = () => {
-  //   return todos.filter((todo) => {
-  //     if (value.searchInput === todo.value) {
-  //       setTodos(todo);
-  //     }
-  //     return todo;
-  //   });
-  // };
-
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
   // useEffect(() => {
   //   searchTodos();
-  // }, [value.searchInput]);
+  // }, [searchVal]);
 
   return (
     <TodoContext.Provider
