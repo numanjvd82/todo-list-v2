@@ -66,9 +66,13 @@ const TodoProvider = ({ children }) => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
-  // useEffect(() => {
-  //   searchTodos();
-  // }, [searchVal]);
+  const searchTodos = (allTodos) => {
+    if (searchVal === '') {
+      return allTodos;
+    } else if (allTodos.todo.toLowerCase().includes(searchVal.toLowerCase())) {
+      return allTodos;
+    }
+  };
 
   return (
     <TodoContext.Provider
@@ -90,6 +94,7 @@ const TodoProvider = ({ children }) => {
         editID,
         searchVal,
         setSearchVal,
+        searchTodos,
       }}
     >
       {children}

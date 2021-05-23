@@ -9,16 +9,8 @@ import { useTodoContext } from '../../Context/Context';
 import './List.css';
 
 const List = () => {
-  const { todos, handleDelete, completeTodo, editTodo, inputRef, searchVal } =
+  const { todos, handleDelete, completeTodo, editTodo, inputRef, searchTodos } =
     useTodoContext();
-
-  const searchTodos = (allTodos) => {
-    if (searchVal === '') {
-      return allTodos;
-    } else if (allTodos.todo.toLowerCase().includes(searchVal.toLowerCase())) {
-      return allTodos;
-    }
-  };
 
   return (
     <>
