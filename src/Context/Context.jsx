@@ -11,10 +11,8 @@ const TodoContext = createContext();
 
 const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState(getLocalStorage()); // initial todos will be fetched from this local storage helper function
-  const [value, setValue] = useState({
-    addInput: '',
-    searchInput: '',
-  });
+  const [value, setValue] = useState('');
+  const [searchVal, setSearchVal] = useState('');
   const [editing, setEditing] = useState(false);
   const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({
@@ -49,7 +47,7 @@ const TodoProvider = ({ children }) => {
     const specificItem = todos.find((todo) => todo.id === id);
     setEditing(true);
     setEditID(id);
-    setValue({ ...value, addInput: specificItem.todo });
+    setValue(...value, { ...fields, addInput: specificItem.todo });
   };
 
   const clearTodos = () => {
@@ -64,9 +62,22 @@ const TodoProvider = ({ children }) => {
     }
   };
 
+  // const searchTodos = () => {
+  //   return todos.filter((todo) => {
+  //     if (value.searchInput === todo.value) {
+  //       setTodos(todo);
+  //     }
+  //     return todo;
+  //   });
+  // };
+
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
+
+  // useEffect(() => {
+  //   searchTodos();
+  // }, [value.searchInput]);
 
   return (
     <TodoContext.Provider
@@ -78,7 +89,6 @@ const TodoProvider = ({ children }) => {
         editing,
         alert,
         inputRef,
-
         handleDelete,
         completeTodo,
         editTodo,
@@ -87,6 +97,8 @@ const TodoProvider = ({ children }) => {
         setEditID,
         setEditing,
         editID,
+        searchVal,
+        setSearchVal,
       }}
     >
       {children}

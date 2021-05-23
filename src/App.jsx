@@ -7,7 +7,8 @@ import Form from './Components/Form/Form';
 import Header from './Components/Header/Header';
 
 const App = () => {
-  const { alert, todos, clearTodos } = useTodoContext();
+  const { alert, todos, clearTodos, value } = useTodoContext();
+  console.log(value);
 
   return (
     <>

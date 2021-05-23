@@ -4,7 +4,7 @@ import Input from '../Input/Input';
 import { useTodoContext } from '../../Context/Context';
 
 const Header = () => {
-  const { value } = useTodoContext();
+  const { searchVal } = useTodoContext();
   return (
     <>
       <header className="header">
@@ -12,7 +12,7 @@ const Header = () => {
           name="search-todo"
           className="input input-search"
           placeholder="Search Todos"
-          value={value.searchInput}
+          value={searchVal}
         />
       </header>
     </>

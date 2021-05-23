@@ -17,42 +17,39 @@ const Form = () => {
   } = useTodoContext();
 
   const handleSubmit = (e) => {
-    if (!value.addInput) {
+    if (!value) {
       e.preventDefault();
       showAlert(
         true,
         'Write Something in the Input, No empty list for you!',
         'danger'
       );
-    } else if (value.addInput && editing) {
+    } else if (value && editing) {
       e.preventDefault();
       setTodos(
         todos.map((item) => {
           if (item.id === editID) {
-            return { ...item, todo: value.addInput };
+            return { ...item, todo: value };
           }
           return item;
         })
       );
       showAlert(true, 'Edit Successful', 'success');
       setEditID(null);
-      setValue({ ...value, addInput: '' });
+      setValue('');
       setEditing(false);
     } else {
       e.preventDefault();
-      setTodos([
-        ...todos,
-        { id: uuidv4(), todo: value.addInput, completed: false },
-      ]);
+      setTodos([...todos, { id: uuidv4(), todo: value, completed: false }]);
       showAlert(true, 'Todo Added Succesfully!', 'success');
-      setValue({ ...value, addInput: '' });
+      setValue('');
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <Input
-        value={value.addInput}
+        value={value}
         name="add-todo"
         className="input"
         placeholder="Add a Todo"
