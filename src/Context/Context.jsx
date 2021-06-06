@@ -47,7 +47,7 @@ const TodoProvider = ({ children }) => {
     const specificItem = todos.find((todo) => todo.id === id);
     setEditing(true);
     setEditID(id);
-    setValue(...value, { ...fields, addInput: specificItem.todo });
+    setValue(specificItem.todo);
   };
 
   const clearTodos = () => {
