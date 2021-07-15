@@ -3,15 +3,7 @@ import { useTodoContext } from '../../Context/Context';
 import './Input.css';
 
 const Input = ({ placeholder, className, name, inputValue }) => {
-  const { inputRef, setValue, setSearchVal } = useTodoContext();
-  const handleChange = (e) => {
-    if (e.target.name === 'add-todo') {
-      setValue(e.target.value);
-    }
-    if (e.target.name === 'search-todo') {
-      setSearchVal(e.target.value);
-    }
-  };
+  const { inputRef, handleChange } = useTodoContext();
 
   return (
     <input

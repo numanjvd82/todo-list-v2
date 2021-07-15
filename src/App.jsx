@@ -5,6 +5,7 @@ import './App.css';
 import { useTodoContext } from './Context/Context';
 import Form from './Components/Form/Form';
 import Header from './Components/Header/Header';
+import { Box } from '@chakra-ui/react';
 
 const App = () => {
   const { alert, todos, clearTodos } = useTodoContext();

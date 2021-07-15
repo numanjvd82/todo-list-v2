@@ -15,6 +15,7 @@ const TodoProvider = ({ children }) => {
   const [searchVal, setSearchVal] = useState('');
   const [editing, setEditing] = useState(false);
   const [editID, setEditID] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
   const [alert, setAlert] = useState({
     msg: '',
     type: '',
@@ -22,6 +23,11 @@ const TodoProvider = ({ children }) => {
   });
 
   const inputRef = useRef();
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  console.log(darkMode);
 
   const showAlert = (show = false, msg = '', type = '') => {
     return setAlert({ show, msg, type });
@@ -74,6 +80,15 @@ const TodoProvider = ({ children }) => {
     }
   };
 
+  const handleChange = (e) => {
+    if (e.target.name === 'add-todo') {
+      setValue(e.target.value);
+    }
+    if (e.target.name === 'search-todo') {
+      setSearchVal(e.target.value);
+    }
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -95,6 +110,9 @@ const TodoProvider = ({ children }) => {
         searchVal,
         setSearchVal,
         searchTodos,
+        toggleDarkMode,
+        darkMode,
+        handleChange,
       }}
     >
       {children}
