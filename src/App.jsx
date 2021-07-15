@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import List from './components/List/List';
 import Alert from './components/Alert/Alert';
 import './App.css';
@@ -7,7 +7,7 @@ import Form from './Components/Form/Form';
 import Header from './Components/Header/Header';
 
 const App = () => {
-  const { alert, todos, clearTodos, value } = useTodoContext();
+  const { alert, todos, clearTodos } = useTodoContext();
 
   return (
     <>
