@@ -4,7 +4,8 @@ import './App.css';
 import { useTodoContext } from './Context/Context';
 import Form from './Components/Form/Form';
 import Header from './Components/Header/Header';
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
+import Alert from './Components/Alert/Alert';
 
 const App = () => {
   const { todos, clearTodos } = useTodoContext();
@@ -30,23 +31,7 @@ const App = () => {
           </Flex>
           <List key={todos.id} />
         </Box>
-        {todos.length > 0 && (
-          <Box mt={4}>
-            <Flex justify="center">
-              <Button
-                onClick={() => clearTodos()}
-                px={6}
-                py={4}
-                _hover={{ bg: 'gray.400', transform: 'translateY(-5px)' }}
-                bg="gray.600"
-                color="white"
-                type="submit"
-              >
-                Clear All
-              </Button>
-            </Flex>
-          </Box>
-        )}
+        <Alert />
       </Flex>
     </>
   );

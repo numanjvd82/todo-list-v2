@@ -19,17 +19,18 @@ const TodoProvider = ({ children }) => {
   const [editing, setEditing] = useState(false);
   const [editID, setEditID] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const cancelRef = useRef();
   const inputRef = useRef();
+  const deleteRef = useRef(null);
+
+  const onClose = () => setIsOpen(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
   console.log(darkMode);
-
-  const showAlert = (show = false, msg = '', type = '') => {
-    return setAlert({ show, msg, type });
-  };
 
   const handleDelete = (id) => {
     const newTodos = todos.filter((todo) => {
@@ -60,21 +61,11 @@ const TodoProvider = ({ children }) => {
   };
 
   const clearTodos = () => {
-    let confirmClear = window.confirm(
-      'Are you sure you want delete all your todos'
-    );
-    if (confirmClear) {
+    if (deleteRef.current) {
       setTodos([]);
       toast({
         title: 'All Todos Deleted',
         status: 'warning',
-        duration: 4000,
-        isClosable: true,
-      });
-    } else {
-      toast({
-        title: 'Phew! Be Careful',
-        status: 'info',
         duration: 4000,
         isClosable: true,
       });
@@ -125,6 +116,11 @@ const TodoProvider = ({ children }) => {
         darkMode,
         handleChange,
         toast,
+        isOpen,
+        setIsOpen,
+        cancelRef,
+        onClose,
+        deleteRef,
       }}
     >
       {children}

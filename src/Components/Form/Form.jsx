@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTodoContext } from '../../Context/Context';
 import { v4 as uuidv4 } from 'uuid';
-import { Box, Button, Flex, Input, Tooltip } from '@chakra-ui/react';
+import { Box, Button, Center, Flex, Input, Tooltip } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 
 const Form = () => {
@@ -91,21 +91,19 @@ const Form = () => {
           onChange={handleChange}
         />
       </Tooltip>
-      <Box mt={4}>
-        <Flex justify="center">
-          <Button
-            leftIcon={<AddIcon />}
-            px={6}
-            py={4}
-            _hover={{ bg: 'gray.400', transform: 'translateY(-5px)' }}
-            bg="gray.600"
-            color="white"
-            type="submit"
-          >
-            {editing ? 'Edit' : 'Add'}
-          </Button>
-        </Flex>
-      </Box>
+      <Center mt={4}>
+        <Button
+          leftIcon={<AddIcon />}
+          px={6}
+          py={4}
+          _hover={{ bg: 'gray.400', transform: 'translateY(-5px)' }}
+          bg="gray.600"
+          color="white"
+          type="submit"
+        >
+          {editing ? 'Edit' : 'Add'}
+        </Button>
+      </Center>
     </form>
   );
 };
