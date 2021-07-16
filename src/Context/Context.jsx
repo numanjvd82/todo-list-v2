@@ -6,21 +6,19 @@ import React, {
   useRef,
 } from 'react';
 import { getLocalStorage } from './utilityFuncs';
+import { useToast } from '@chakra-ui/react';
 
 const TodoContext = createContext();
 
 const TodoProvider = ({ children }) => {
+  const toast = useToast();
+
   const [todos, setTodos] = useState(getLocalStorage()); // initial todos will be fetched from this local storage helper function
   const [value, setValue] = useState('');
   const [searchVal, setSearchVal] = useState('');
   const [editing, setEditing] = useState(false);
   const [editID, setEditID] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
-  const [alert, setAlert] = useState({
-    msg: '',
-    type: '',
-    show: false,
-  });
 
   const inputRef = useRef();
 
@@ -38,7 +36,12 @@ const TodoProvider = ({ children }) => {
       return todo.id !== id;
     });
     setTodos(newTodos);
-    showAlert(true, 'Todo Deleted', 'danger');
+    toast({
+      title: 'Todo Deleted',
+      status: 'success',
+      duration: 4000,
+      isClosable: true,
+    });
   };
 
   const completeTodo = (id) => {
@@ -62,9 +65,19 @@ const TodoProvider = ({ children }) => {
     );
     if (confirmClear) {
       setTodos([]);
-      showAlert(true, 'All Todos Deleted', 'danger');
+      toast({
+        title: 'All Todos Deleted',
+        status: 'warning',
+        duration: 4000,
+        isClosable: true,
+      });
     } else {
-      showAlert(true, 'Phew! Be Careful', 'warning');
+      toast({
+        title: 'Phew! Be Careful',
+        status: 'info',
+        duration: 4000,
+        isClosable: true,
+      });
     }
   };
 
@@ -97,13 +110,11 @@ const TodoProvider = ({ children }) => {
         value,
         setValue,
         editing,
-        alert,
         inputRef,
         handleDelete,
         completeTodo,
         editTodo,
         clearTodos,
-        showAlert,
         setEditID,
         setEditing,
         editID,
@@ -113,6 +124,7 @@ const TodoProvider = ({ children }) => {
         toggleDarkMode,
         darkMode,
         handleChange,
+        toast,
       }}
     >
       {children}

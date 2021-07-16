@@ -2,30 +2,33 @@ import React from 'react';
 import { useTodoContext } from '../../Context/Context';
 import { v4 as uuidv4 } from 'uuid';
 import { Box, Button, Flex, Input, Tooltip } from '@chakra-ui/react';
-// import Input from '../Input/Input';
+import { AddIcon } from '@chakra-ui/icons';
 
 const Form = () => {
   const {
     setValue,
     value,
     editing,
-    showAlert,
     setTodos,
     todos,
     setEditing,
     editID,
     setEditID,
+    inputRef,
     handleChange,
+    toast,
   } = useTodoContext();
 
   const handleSubmit = (e) => {
     if (!value) {
       e.preventDefault();
-      showAlert(
-        true,
-        'Write Something in the Input, No empty list for you!',
-        'danger'
-      );
+      toast({
+        title: 'Write Something in the Input,',
+        description: 'No empty list for you!',
+        status: 'error',
+        duration: 4000,
+        isClosable: true,
+      });
     } else if (value && editing) {
       e.preventDefault();
       setTodos(
@@ -36,14 +39,24 @@ const Form = () => {
           return item;
         })
       );
-      showAlert(true, 'Edit Successful', 'success');
+      toast({
+        title: 'Edit Succesful',
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      });
       setEditID(null);
       setValue('');
       setEditing(false);
     } else {
       e.preventDefault();
       setTodos([...todos, { id: uuidv4(), todo: value, completed: false }]);
-      showAlert(true, 'Todo Added Succesfully!', 'success');
+      toast({
+        title: 'Todo Added Succesfully!',
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      });
       setValue('');
     }
   };
@@ -53,11 +66,12 @@ const Form = () => {
       <Tooltip
         p={2}
         rounded={4}
-        label="Enter to make a Task"
+        label="Fun Fact ! You can also press enter to make a Todo"
         aria-label="A tooltip"
         placement="left-start"
       >
         <Input
+          ref={inputRef}
           my={4}
           p={4}
           size="sm"
@@ -80,6 +94,7 @@ const Form = () => {
       <Box mt={4}>
         <Flex justify="center">
           <Button
+            leftIcon={<AddIcon />}
             px={6}
             py={4}
             _hover={{ bg: 'gray.400', transform: 'translateY(-5px)' }}
@@ -96,9 +111,3 @@ const Form = () => {
 };
 
 export default Form;
-
-{
-  /* <button className="btn-big btn-submit" type="submit">
-        {editing ? 'Edit' : 'Add'}
-      </button> */
-}
