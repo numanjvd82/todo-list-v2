@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTodoContext } from '../../Context/Context';
 import { v4 as uuidv4 } from 'uuid';
-import Input from '../Input/Input';
+import { Box, Button, Flex, Input, Tooltip } from '@chakra-ui/react';
+// import Input from '../Input/Input';
 
 const Form = () => {
   const {
@@ -14,6 +15,7 @@ const Form = () => {
     setEditing,
     editID,
     setEditID,
+    handleChange,
   } = useTodoContext();
 
   const handleSubmit = (e) => {
@@ -48,17 +50,55 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input
-        inputValue={value}
-        name="add-todo"
-        className="input"
-        placeholder="Add a Todo"
-      />
-      <button className="btn-big btn-submit" type="submit">
-        {editing ? 'Edit' : 'Add'}
-      </button>
+      <Tooltip
+        p={2}
+        rounded={4}
+        label="Enter to make a Task"
+        aria-label="A tooltip"
+        placement="left-start"
+      >
+        <Input
+          my={4}
+          p={4}
+          size="sm"
+          w="320px"
+          h="10"
+          fontSize="md"
+          fontWeight="bold"
+          color="lightFontColor"
+          _placeholder={{ color: 'gray.600' }}
+          borderColor="inputBorderColor"
+          _hover={{ borderColor: 'inputBorderHoverColor' }}
+          borderWidth="2px"
+          placeholder="Add Todos"
+          name="add-todo"
+          rounded="xl"
+          value={value}
+          onChange={handleChange}
+        />
+      </Tooltip>
+      <Box mt={4}>
+        <Flex justify="center">
+          <Button
+            px={6}
+            py={4}
+            _hover={{ bg: 'gray.400', transform: 'translateY(-5px)' }}
+            bg="gray.600"
+            color="white"
+            type="submit"
+          >
+            {editing ? 'Edit' : 'Add'}
+          </Button>
+        </Flex>
+      </Box>
     </form>
   );
 };
 
 export default Form;
+
+{
+  /* <button className="btn-big btn-submit" type="submit">
+        {editing ? 'Edit' : 'Add'}
+      </button> */
+}

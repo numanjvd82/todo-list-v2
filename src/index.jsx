@@ -12,7 +12,16 @@ const theme = extendTheme({
     inputBg: '#131010',
     inputBorderHoverColor: '#538bca',
     bodyColor: '#38322E',
-    fontColor: 'white',
+    darkFontColor: 'white',
+    lightFontColor: 'black',
+  },
+  styles: {
+    global: (props) => ({
+      body: {
+        bg: props.colorMode === 'dark' ? '#38322E' : '#E1E5F2',
+        color: props.colorMode === 'dark' ? 'white' : 'black',
+      },
+    }),
   },
 });
 

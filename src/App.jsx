@@ -5,7 +5,7 @@ import './App.css';
 import { useTodoContext } from './Context/Context';
 import Form from './Components/Form/Form';
 import Header from './Components/Header/Header';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
 const App = () => {
   const { alert, todos, clearTodos } = useTodoContext();
@@ -14,8 +14,15 @@ const App = () => {
     <>
       {alert.show && <Alert />}
       <Header />
-      <section className="container">
-        <h1>Todo List</h1>
+      <Flex justify="center" direction="column" align="center">
+        <Text
+          bgGradient="linear(to-r, #2A0F57,#003779,#008DBE)"
+          bgClip="text"
+          fontSize="6xl"
+          fontWeight="extrabold"
+        >
+          Todo List
+        </Text>
         <Form />
         <section className="tasks">
           <span>
@@ -32,7 +39,7 @@ const App = () => {
             Clear All
           </button>
         )}
-      </section>
+      </Flex>
     </>
   );
 };
