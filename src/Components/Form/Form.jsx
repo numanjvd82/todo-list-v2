@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTodoContext } from '../../Context/Context';
 import { v4 as uuidv4 } from 'uuid';
-import { Box, Button, Center, Flex, Input, Tooltip } from '@chakra-ui/react';
+import { Button, Center, Input } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 
 const Form = () => {
@@ -63,34 +63,27 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Tooltip
-        p={2}
-        rounded={4}
-        label="Press enter to make a Todo"
-        aria-label="A tooltip"
-        placement="left-start"
-      >
-        <Input
-          ref={inputRef}
-          my={4}
-          p={4}
-          size="sm"
-          w="320px"
-          h="10"
-          fontSize="md"
-          fontWeight="bold"
-          color="lightFontColor"
-          _placeholder={{ color: 'gray.600' }}
-          borderColor="inputBorderColor"
-          _hover={{ borderColor: 'inputBorderHoverColor' }}
-          borderWidth="2px"
-          placeholder="Add Todos"
-          name="add-todo"
-          rounded="xl"
-          value={value}
-          onChange={handleChange}
-        />
-      </Tooltip>
+      <Input
+        ref={inputRef}
+        my={4}
+        p={4}
+        size="sm"
+        w="320px"
+        h="10"
+        fontSize="md"
+        fontWeight="bold"
+        color="lightFontColor"
+        _placeholder={{ color: 'gray.600' }}
+        borderColor="inputBorderColor"
+        _hover={{ borderColor: 'inputBorderHoverColor' }}
+        borderWidth="2px"
+        placeholder="Add Todos"
+        name="add-todo"
+        rounded="xl"
+        value={value}
+        onChange={handleChange}
+      />
+
       <Center my={4}>
         <Button
           rightIcon={<AddIcon />}

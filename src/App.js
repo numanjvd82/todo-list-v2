@@ -15,7 +15,7 @@ const App = () => {
       <Header />
       <Flex justify="center" direction="column" align="center">
         <Text
-          bgGradient="linear(to-r, #2A0F57,#003779,#008DBE)"
+          bgGradient="linear(to-r, #00E4C5,#003779,#008DBE)"
           bgClip="text"
           fontSize="6xl"
           fontWeight="extrabold"
@@ -29,8 +29,8 @@ const App = () => {
               {todos.length > 0 ? `Tasks - ${todos.length}` : 'No Tasks Given'}
             </Text>
           </Flex>
-          <List key={todos.id} />
         </Box>
+        <List key={todos.id} />
         <Alert />
       </Flex>
     </>

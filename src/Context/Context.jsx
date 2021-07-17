@@ -18,7 +18,6 @@ const TodoProvider = ({ children }) => {
   const [searchVal, setSearchVal] = useState('');
   const [editing, setEditing] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [darkMode, setDarkMode] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   // ref for closing the alert dialog
@@ -30,10 +29,6 @@ const TodoProvider = ({ children }) => {
   const deleteRef = useRef(null);
 
   const onClose = () => setIsOpen(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   const handleDelete = (id) => {
     const newTodos = todos.filter((todo) => {
@@ -115,8 +110,6 @@ const TodoProvider = ({ children }) => {
         searchVal,
         setSearchVal,
         searchTodos,
-        toggleDarkMode,
-        darkMode,
         handleChange,
         toast,
         isOpen,

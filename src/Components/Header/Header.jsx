@@ -1,36 +1,44 @@
 import React from 'react';
 import './Header.css';
 import { useTodoContext } from '../../Context/Context';
-import { Box, Flex, IconButton, Tooltip } from '@chakra-ui/react';
-import { Input } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  IconButton,
+  Tooltip,
+  useColorMode,
+  Input,
+} from '@chakra-ui/react';
 import { FaMoon } from 'react-icons/fa';
 import { BsSun } from 'react-icons/bs';
 
 const Header = () => {
-  const { searchVal, handleChange, toggleDarkMode, darkMode } =
-    useTodoContext();
+  const { searchVal, handleChange } = useTodoContext();
+
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <>
-      <Box bg="headerBg" w="100%" p={4}>
+      <Box bg={colorMode === 'dark' ? '' : '#161414'} w="100%" p={4}>
         <Flex align="center" justify="space-between">
           <Tooltip
             p={2}
             rounded={4}
-            label={darkMode ? 'Light Mode' : 'Dark Mode'}
+            label={colorMode === 'dark' ? 'Light Mode' : 'Dark Mode'}
             aria-label="A tooltip"
           >
             <IconButton
               mx={4}
-              onClick={toggleDarkMode}
+              onClick={toggleColorMode}
               rounded="xl"
               aria-label="Enable Dark Mode"
-              icon={darkMode ? <BsSun /> : <FaMoon />}
+              icon={colorMode === 'dark' ? <BsSun /> : <FaMoon />}
             />
           </Tooltip>
           <Tooltip
             p={2}
             rounded={4}
-            label="Enter to search Todos"
+            label="Type to search Todos"
             aria-label="A tooltip"
           >
             <Input
@@ -39,9 +47,7 @@ const Header = () => {
               w="320px"
               h="10"
               fontSize="md"
-              color="darkFontColor"
               _placeholder={{ color: 'white' }}
-              borderColor="inputBorderColor"
               borderWidth="2px"
               placeholder="Search Todos"
               name="search-todo"
