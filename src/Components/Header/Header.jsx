@@ -46,6 +46,8 @@ const Header = () => {
               size="sm"
               w="320px"
               h="10"
+              color={colorMode === 'dark' ? '' : 'white'}
+              fontWeight="semibold"
               fontSize="md"
               _placeholder={{ color: 'white' }}
               borderWidth="2px"
