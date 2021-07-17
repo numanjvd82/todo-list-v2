@@ -8,7 +8,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import Alert from './Components/Alert/Alert';
 
 const App = () => {
-  const { todos, clearTodos } = useTodoContext();
+  const { todos } = useTodoContext();
 
   return (
     <>

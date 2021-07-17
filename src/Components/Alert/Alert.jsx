@@ -25,8 +25,6 @@ const Alert = () => {
     deleteRef,
   } = useTodoContext();
 
-  // const deleteRef = useRef(null);
-
   const onClickDel = () => {
     clearTodos();
     onClose();
@@ -41,7 +39,7 @@ const Alert = () => {
               onClick={() => setIsOpen(true)}
               px={6}
               py={4}
-              _hover={{ bg: 'gray.400', transform: 'translateY(-5px)' }}
+              _hover={{ bg: 'gray.500', transform: 'translateY(-5px)' }}
               bg="gray.600"
               color="white"
               type="submit"

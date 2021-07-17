@@ -66,7 +66,7 @@ const Form = () => {
       <Tooltip
         p={2}
         rounded={4}
-        label="Fun Fact ! You can also press enter to make a Todo"
+        label="Press enter to make a Todo"
         aria-label="A tooltip"
         placement="left-start"
       >
@@ -91,12 +91,12 @@ const Form = () => {
           onChange={handleChange}
         />
       </Tooltip>
-      <Center mt={4}>
+      <Center my={4}>
         <Button
-          leftIcon={<AddIcon />}
+          rightIcon={<AddIcon />}
           px={6}
           py={4}
-          _hover={{ bg: 'gray.400', transform: 'translateY(-5px)' }}
+          _hover={{ bg: 'gray.500', transform: 'translateY(-5px)' }}
           bg="gray.600"
           color="white"
           type="submit"

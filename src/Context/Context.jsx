@@ -21,8 +21,12 @@ const TodoProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const cancelRef = useRef();
+  // ref for closing the alert dialog
+  const cancelRef = useRef(null);
+
   const inputRef = useRef();
+
+  // deleteRef for catching the alertdialog del btn value
   const deleteRef = useRef(null);
 
   const onClose = () => setIsOpen(false);
@@ -30,7 +34,6 @@ const TodoProvider = ({ children }) => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-  console.log(darkMode);
 
   const handleDelete = (id) => {
     const newTodos = todos.filter((todo) => {
@@ -39,7 +42,7 @@ const TodoProvider = ({ children }) => {
     setTodos(newTodos);
     toast({
       title: 'Todo Deleted',
-      status: 'success',
+      status: 'error',
       duration: 4000,
       isClosable: true,
     });
