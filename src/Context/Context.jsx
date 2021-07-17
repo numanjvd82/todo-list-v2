@@ -6,33 +6,41 @@ import React, {
   useRef,
 } from 'react';
 import { getLocalStorage } from './utilityFuncs';
+import { useToast } from '@chakra-ui/react';
 
 const TodoContext = createContext();
 
 const TodoProvider = ({ children }) => {
+  const toast = useToast();
+
   const [todos, setTodos] = useState(getLocalStorage()); // initial todos will be fetched from this local storage helper function
   const [value, setValue] = useState('');
   const [searchVal, setSearchVal] = useState('');
   const [editing, setEditing] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [alert, setAlert] = useState({
-    msg: '',
-    type: '',
-    show: false,
-  });
+  const [isOpen, setIsOpen] = useState(false);
+
+  // ref for closing the alert dialog
+  const cancelRef = useRef(null);
 
   const inputRef = useRef();
 
-  const showAlert = (show = false, msg = '', type = '') => {
-    return setAlert({ show, msg, type });
-  };
+  // deleteRef for catching the alertdialog del btn value
+  const deleteRef = useRef(null);
+
+  const onClose = () => setIsOpen(false);
 
   const handleDelete = (id) => {
     const newTodos = todos.filter((todo) => {
       return todo.id !== id;
     });
     setTodos(newTodos);
-    showAlert(true, 'Todo Deleted', 'danger');
+    toast({
+      title: 'Todo Deleted',
+      status: 'error',
+      duration: 4000,
+      isClosable: true,
+    });
   };
 
   const completeTodo = (id) => {
@@ -51,14 +59,14 @@ const TodoProvider = ({ children }) => {
   };
 
   const clearTodos = () => {
-    let confirmClear = window.confirm(
-      'Are you sure you want delete all your todos'
-    );
-    if (confirmClear) {
+    if (deleteRef.current) {
       setTodos([]);
-      showAlert(true, 'All Todos Deleted', 'danger');
-    } else {
-      showAlert(true, 'Phew! Be Careful', 'warning');
+      toast({
+        title: 'All Todos Deleted',
+        status: 'warning',
+        duration: 4000,
+        isClosable: true,
+      });
     }
   };
 
@@ -74,6 +82,15 @@ const TodoProvider = ({ children }) => {
     }
   };
 
+  const handleChange = (e) => {
+    if (e.target.name === 'add-todo') {
+      setValue(e.target.value);
+    }
+    if (e.target.name === 'search-todo') {
+      setSearchVal(e.target.value);
+    }
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -82,19 +99,24 @@ const TodoProvider = ({ children }) => {
         value,
         setValue,
         editing,
-        alert,
         inputRef,
         handleDelete,
         completeTodo,
         editTodo,
         clearTodos,
-        showAlert,
         setEditID,
         setEditing,
         editID,
         searchVal,
         setSearchVal,
         searchTodos,
+        handleChange,
+        toast,
+        isOpen,
+        setIsOpen,
+        cancelRef,
+        onClose,
+        deleteRef,
       }}
     >
       {children}
