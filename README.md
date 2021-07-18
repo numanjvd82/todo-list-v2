@@ -1,4 +1,4 @@
-# todo-list-V2
+# Todo List (V3)
 Todo List is a great place for your awaiting tasks.
 
 # FEATURES
