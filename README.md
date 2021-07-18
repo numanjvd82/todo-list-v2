@@ -1,10 +1,11 @@
 # todo-list-V2
 Todo List is a great place for your awaiting tasks.
 
-# UPCOMING FEATURE
-1. Dark Mode Completed
-2. UI recreated with Chakra UI
-3. Local Storage 
+# FEATURES
+- [x] Dark Mode Completed
+- [x] UI recreated with Chakra UI
+- [x] Local Storage
+- [x] Search bar for searching Todos  
 
 # Live preview of the Project
 https://todo-listv3.netlify.app/
