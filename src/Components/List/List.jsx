@@ -7,7 +7,6 @@ import {
   AiTwotoneDelete,
 } from 'react-icons/ai';
 import { useTodoContext } from '../../Context/Context';
-import './List.css';
 
 const List = () => {
   const { todos, handleDelete, completeTodo, editTodo, inputRef, searchTodos } =
